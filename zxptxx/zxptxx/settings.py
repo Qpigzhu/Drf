@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'captcha', #验证码插件
+    'pure_pagination', #分页插件
 ]
 AUTH_USER_MODEL = "users.UserProfile"  #重载python的user的数据表
 
@@ -79,6 +80,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #设置media的上传配置
+                'django.core.context_processors.media',
             ],
         },
     },
@@ -154,3 +157,7 @@ EMAIL_HOST_USER = "331103418@qq.com"
 EMAIL_HOST_PASSWORD = "qkjhxukcfynpbhfi"
 EMAIL_USER_TLS = False
 EMAIL_FROM = "331103418@qq.com"
+
+#设置上传文件
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
